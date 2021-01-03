@@ -9,6 +9,8 @@ module.exports = (err, req, res, next) => {
         } else {
             res.status(400).json({msg: err.errors[0].message})
         }
+    } else if (err.name === 'SequelizeValidationError') {
+        res.status(401).json({msg: err.errors[0].message})
     } else if (err.name === 'invalid account') {
         res.status(401).json({msg: 'invalid email/password'})
     } else if (err.name === 'invalid token' || err.name === 'JsonWebTokenError') {

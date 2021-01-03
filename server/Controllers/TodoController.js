@@ -13,6 +13,17 @@ class TodoController {
             })
     }
 
+    static getTodoById (req, res, next) {
+        const id = req.params.id
+        Todo.findOne({where: {id}})
+            .then(data => {
+                res.status(200).json(data)
+            })
+            .catch(err => {
+                next(err)
+            })
+    }
+
     static createTodo (req, res, next) {
         Todo.create({
             title: req.body.title,

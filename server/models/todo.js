@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
-          msg: 'title cannot be empty'
+          msg: 'description cannot be empty'
         }
       }
     },
@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
-          msg: 'title cannot be empty'
+          msg: 'status cannot be empty'
         }
       }
     },
